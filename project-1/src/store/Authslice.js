@@ -1,7 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+// to check that the user is authentitcated or not 
 const intialState = {
-    
+    status: false,
+    userData: false,
+
 }
 
-const authSlice = createSlice({});
+const authSlice = createSlice({
+    name: "auth",
+    intialState,
+    reducers:{
+        login: (state , action) => {
+            state.status = true;
+            state.userData = action.payload.userData;
+        },
+        logout: (state) => {
+            state.status = false;
+            state.userData = null;
+        }
+    }
+});
+
+export const{login , logout} = authSlice.actions;
+
+export default authSlice.reducer
