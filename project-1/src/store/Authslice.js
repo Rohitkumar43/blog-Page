@@ -1,15 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-// to check that the user is authentitcated or not 
+//this slice is used  to check that the user is authentitcated or not 
 const intialState = {
     status: false,
     userData: false,
-
 }
 
 const authSlice = createSlice({
     name: "auth",
     intialState,
-    reducers:{
+    reducers:{ // reducer have always state and action
         login: (state , action) => {
             state.status = true;
             state.userData = action.payload.userData;
@@ -23,4 +22,4 @@ const authSlice = createSlice({
 
 export const{login , logout} = authSlice.actions;
 
-export default authSlice.reducer
+export default authSlice.reducer // taki reducer apna kaam kar paye to make the state changes

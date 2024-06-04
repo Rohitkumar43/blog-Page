@@ -4,9 +4,10 @@ import './App.css'
 import { useDispatch } from 'react-redux'
 import authservice from './Appwrite/auth'
 import {login , logout} from './store/Authslice'
+import {Footer , Header} from './Components'
 
 function App() {
-  const [loading , setloading] = useState(false);
+  const [loading , setloading] = useState(false); // loading while the data is fetch from server or 3rd party
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,11 +20,21 @@ function App() {
     }).finally(() => setloading(false))
   })
 
-  return (
-    <>
-      <h1>a blog in the App </h1>
-    </>
-  )
+
+
+  // CONDITINAL RENDERING 
+  return !loading ? (
+    <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
+      <div className="w-full">
+        <Header/>
+        <main>
+         {/* <outlet/> // react-router dom   */}
+        </main>
+        <Footer/>
+      </div>
+    </div>
+
+  ) : null;
 }
 
 export default App
