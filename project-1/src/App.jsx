@@ -28,6 +28,7 @@ function App() {
       <div className="w-full">
         <Header/>
         <main>
+          TODO:
          {/* <outlet/> // react-router dom   */}
         </main>
         <Footer/>
