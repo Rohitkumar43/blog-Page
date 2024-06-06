@@ -19,4 +19,6 @@ ALL PROCEDURE OR STEPS WHILE DOING THIS PROJECT For UNDERSTANDING
 5. Now we will using the redux to make store for this having file authSlice.js and store.js make the store and set th reducer
 6. make folder header and footer and export it in the index.js (here all the comppnent will export )
 7. always make a load as it take time to fetch the data from the database in app.jsx or fetching data from a 3rd party
-8.
+8. after making the load header we make the logoutBtn we put the according the conditon  
+9. Now we proceed further to make the navbabr where we use the naviagte , useselector and see the code and the logic
+10. check the navabr status fr the logic
