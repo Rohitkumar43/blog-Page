@@ -3,7 +3,7 @@
 import Header from "./Header/Header"
 import Footer from "./Footer/Footer"
 import Container from './Container/Container'
-import Logo from "."
+import Logo from './Logo/Logo'
 import Logoutbtn from "./Header/Logoutbtn"
 
 export{
