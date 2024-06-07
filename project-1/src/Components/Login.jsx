@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Children, useState } from 'react';
 // FOR LOGIN WE WILL TAKE TOO MANY THINGS IN IMPORT FOR THE FORM 
 import { Link , useNavigate } from 'react-router-dom';
 import { login as authLogin } from '../store/Authslice'; 
@@ -43,8 +43,31 @@ function Login(){
                 className='font-medium text-primary transition-all duration-200 hover: underline'>SignUp
                 </Link>
             </p>
-
+            // if any error then display thsi one error 
+            {error && <p className='text-red-600 mt-8 text-center'>{error}</p>}
             </div>
+            <form onSubmit={handlesubmit(login)} className='mt-8'>
+                <div className="space-y-5">
+                    <Input
+                    label = "Email:"
+                    palceholder = "Enter Your Email"
+                    type= "email"
+                    {...register("email") , {required: true,
+                        validate: {
+                            matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                            "Email address must be a valid address",
+                        }}}
+                    />
+                    <Input
+                    label="Password"
+                    palceholder="Enter Your password"
+                    type="password"
+                    {...register("password") , {required: true , validate : {
+                        matchPatern: (value) => 'a-z' || 'A-Z' 
+                    }}}/>
+                    <button className='w-full' type='onsubmit'>Sign In</button>
+                </div>
+            </form>
 
         </div>
     )
