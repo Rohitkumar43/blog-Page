@@ -21,4 +21,7 @@ ALL PROCEDURE OR STEPS WHILE DOING THIS PROJECT For UNDERSTANDING
 7. always make a load as it take time to fetch the data from the database in app.jsx or fetching data from a 3rd party
 8. after making the load header we make the logoutBtn we put the according the conditon  
 9. Now we proceed further to make the navbabr where we use the naviagte , useselector and see the code and the logic
-10. check the navabr status fr the logic
+10. check the navabr status fr the logic and the code 
+11. make differnt component for the input field button also add some validsation(IMPORTANT ONE SO DO IT PROPERLY ) 
+12. Now we will make RTE thT IS THE editor study the documentation and take help from theree
+13. 
