@@ -8,7 +8,7 @@ import Logoutbtn from "./Header/Logoutbtn"
 import Selectdrop from './Selectdrop'
 import Login from './Login'
 import Button from './Button'
-
+import RTE from "./RTE"
 export{
     Header,
     Footer,
@@ -17,6 +17,7 @@ export{
     Logoutbtn,
     Selectdrop,
     Login,
-    Button
+    Button,
+    RTE
 
 }
