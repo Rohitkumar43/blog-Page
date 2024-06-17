@@ -9,6 +9,9 @@ import Selectdrop from './Selectdrop'
 import Login from './Login'
 import Button from './Button'
 import RTE from "./RTE"
+import Signup from "./Signup"
+import postform from "./Post-form/Postform"
+import Postcard from './Postcard'
 export{
     Header,
     Footer,
@@ -18,6 +21,9 @@ export{
     Selectdrop,
     Login,
     Button,
-    RTE
+    RTE,
+    Signup,
+    postform,
+    Postcard
 
 }
