@@ -1,7 +1,7 @@
 import React , {useId} from 'react';
 // import { useId } from 'react';
 // HERE WE WRITE A SPECIAL FXN FOR THE SELCT COMPONENTS
-function Selectdrop({
+function Select({
     option,
     label,
     className,
@@ -27,4 +27,4 @@ function Selectdrop({
 }
 
 
-export default React.forwardRef(Selectdrop);
+export default React.forwardRef(Select);

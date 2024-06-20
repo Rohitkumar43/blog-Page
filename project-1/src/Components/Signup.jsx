@@ -4,21 +4,21 @@ import { Link , useNavigate } from 'react-router-dom';
 import { login } from '../store/Authslice'; 
 import {Button , Input , Logo} from './index'
 import { useDispatch } from 'react-redux';
-import {authservice} from '../Appwrite/auth';
+import {Authservice} from '../Appwrite/auth';
 import {useForm} from 'react-hook-form';
 
 function Signup() {
     const navigate = useNavigate()
     const [error, setError] = useState("")
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const {register, handleSubmit} = useForm()
 
     const create = async(data) => {
         setError("")
         try {
-            const userData = await authservice.createAccount(data)
+            const userData = await Authservice.createAccount(data)
             if (userData) {
-                const userData = await authservice.getCurrentUser()
+                const userData = await Authservice.getCurrentUser()
                 if(userData) dispatch(login(userData));
                 navigate("/")
             }

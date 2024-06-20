@@ -48,23 +48,30 @@ function Login(){
             </div>
             <form onSubmit={handlesubmit(login)} className='mt-8'>
                 <div className="space-y-5">
-                    <Input
-                    label = "Email:"
-                    palceholder = "Enter Your Email"
-                    type= "email"
-                    {...register("email") , {required: true,
-                        validate: {
-                            matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                            "Email address must be a valid address",
-                        }}}
+                <Input
+                        label="Email:"
+                        placeholder="Enter Your Email"
+                        type="email"
+                        {...register("email", {
+                            required: "Email is required",
+                            pattern: {
+                                value: /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+                                message: "Email address must be a valid address"
+                            }
+                        })}
                     />
                     <Input
-                    label="Password"
-                    palceholder="Enter Your password"
-                    type="password"
-                    {...register("password") , {required: true , validate : {
-                        matchPatern: (value) => 'a-z' || 'A-Z' 
-                    }}}/>
+                        label="Password:"
+                        placeholder="Enter Your Password"
+                        type="password"
+                        {...register("password", {
+                            required: "Password is required",
+                            pattern: {
+                                value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
+                                message: "Password must contain at least one lowercase letter, one uppercase letter, and be at least 6 characters long"
+                            }
+                        })}
+                    />
                     <button className='w-full' type='onsubmit'>Sign In</button>
                 </div>
             </form>
