@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { login } from '../../store/Authslice';
 import authservice from '../../Appwrite/auth';
+import { Link } from 'react-router-dom'
 
 function Header() {
     const authstatus = useSelector((state) => state.auth.status);

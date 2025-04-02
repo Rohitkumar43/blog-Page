@@ -1,8 +1,8 @@
 import React , {useEffect , useState} from 'react'
 import { Container } from '../Components';
-import {Postform} from '../Components/Post-form/Postform';
+import Postcard from '../Components/Postcard';
 import appwriteService from '../Appwrite/database';
-import { useNavigate, useParams } from 'react-router-dom';
+
 
 
 function Homepage(){
@@ -37,7 +37,7 @@ function Homepage(){
                 <div className='flex flex-wrap'>
                     {posts.map((post) => (
                         <div key={post.$id} className='p-2 w-1/4'>
-                            <PostCard {...post} />
+                            <Postcard {...post} />
                         </div>
                     ))}
                 </div>

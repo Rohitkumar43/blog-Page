@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import {Button , Input , Select , } from '../index';
+import {Button , Input , RTE , Select , } from '../index';
 import appwriteService from '../../Appwrite/database';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-function postform(){
+function Postform({post}){
     // Here we make a fxn jo batayega ki editor me ae se content hai
     // ya naya dalega ya phir wo set karega 
     const {register , handlesubmit , watch , setValue , control , getValues } = useForm({
@@ -13,18 +13,18 @@ function postform(){
             tittle: post?.tittle || "",
             slug: post?.slug || "",
             content: post?.content || "",
-            status: post?.status || ""
+            status: post?.status || "active"
 
         }
     });
 
     // yaha par hum file update karenge nahi toh naya banayenge 
     const navigate = useNavigate();
-    const userData = useSelector(state => state.user.userData)
+    const userData = useSelector(state => state.auth.userData)
 
     const submit = async(data) => {
         if(post){
-            data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+            data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
 
             if(File){
@@ -40,12 +40,12 @@ function postform(){
                     navigate(`/post/${dbpost.$id}`)
                 }    
         } else{
-            const file = await appwriteService.uploadFile(data.image[0]);
+            const File = await appwriteService.uploadFile(data.image[0]);
 
             if(File){
                 const fieldId = File.$id
                 data.feauturdImage = fieldId 
-                await appwriteService.createpost({
+                const dbpost = await appwriteService.createpost({
                     ...data,
                     userId: userData.$id,
                 })
@@ -86,7 +86,7 @@ function postform(){
 
 
     return(
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+        <form onSubmit={handlesubmit(submit)} className="flex flex-wrap">
             <div className="w-2/3 px-2">
                 <Input
                     label="Title :"
@@ -137,4 +137,4 @@ function postform(){
 }
 
 
-export default postform;
+export default Postform;

@@ -10,7 +10,7 @@ import Login from './Login'
 import Button from './Button'
 import RTE from "./RTE"
 import Signup from "./Signup"
-import postform from "./Post-form/Postform"
+import Postform from "./Post-form/Postform"
 import Postcard from './Postcard'
 import Input from "./Input"
 import AuthLayout from './AuthLayout'
@@ -25,7 +25,7 @@ export{
     Button,
     RTE,
     Signup,
-    postform,
+    Postform,
     Postcard,
     Input,
     AuthLayout

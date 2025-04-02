@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 //this slice is used  to check that the user is authentitcated or not 
-const intialState = {
+const initialState = {
     status: false,
     userData: false,
 }
 
 const authSlice = createSlice({
     name: "auth",
-    intialState,
+    initialState,
     reducers:{ // reducer have always state and action
         login: (state , action) => {
             state.status = true;

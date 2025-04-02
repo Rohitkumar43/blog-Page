@@ -2,7 +2,7 @@
 import { useState , useEffect } from 'react'
 import './App.css'
 import { useDispatch } from 'react-redux'
-import authservice from './Appwrite/auth'
+import Authservice from './Appwrite/auth'
 import {login , logout} from './store/Authslice'
 import {Footer , Header} from './Components'
 
@@ -11,7 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    authservice.getCurreentUser().then((userData) => {
+    Authservice.getCurreentUser().then((userData) => {
       if(userData){
         dispatch(login({userData}))
       } else {
